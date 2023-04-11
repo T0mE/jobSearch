@@ -10,3 +10,49 @@ body {
 	color: #fff;
 	font-size: 10px;
 }
+
+main {
+	margin: 10px;
+}
+
+.search-img {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url('../img/architecture.jpg');
+	/* background-position: center; */
+	background-size: cover;
+	background-position: 0 50%;
+	/* background-repeat: no-repeat; */
+	height: 200px;
+	border-radius: 10px;
+}
+
+.search-in {
+	position: relative;
+	width: 300px;
+}
+
+input {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	outline: none;
+	height: 40px;
+	border-radius: 5px;
+}
+
+button {
+	position: absolute;
+	top: 0;
+	border-radius: 5px;
+	right: 10px;
+	z-index: 2;
+	border: none;
+	top: 5px;
+	height: 30px;
+	cursor: pointer;
+	color: white;
+	background-color: #1e90ff;
+	transform: translateX(2px);
+}
