@@ -4,15 +4,16 @@
 	padding: 0;
 }
 
-body {
+html {
 	font-family: 'Saira Extra Condensed', sans-serif;
 	background: #181717;
 	color: #fff;
 	font-size: 10px;
 }
 
-main {
-	margin: 10px;
+.main {
+	margin: 10px auto;
+	max-width: 992px;
 }
 
 .search-img {
@@ -20,10 +21,9 @@ main {
 	justify-content: center;
 	align-items: center;
 	background-image: url('../img/architecture.jpg');
-	/* background-position: center; */
+
 	background-size: cover;
 	background-position: 0 50%;
-	/* background-repeat: no-repeat; */
 	height: 200px;
 	border-radius: 10px;
 }
@@ -33,7 +33,7 @@ main {
 	width: 300px;
 }
 
-input {
+.search__input {
 	margin: 0px;
 	padding: 0px;
 	width: 100%;
@@ -44,15 +44,62 @@ input {
 
 button {
 	position: absolute;
-	top: 0;
-	border-radius: 5px;
+	top: 5px;
 	right: 10px;
+	border-radius: 5px;
 	z-index: 2;
 	border: none;
-	top: 5px;
+	width: 60px;
 	height: 30px;
 	cursor: pointer;
 	color: white;
 	background-color: #1e90ff;
-	transform: translateX(2px);
+}
+
+.result {
+	font-size: 1.4rem;
+	color: royalblue;
+	font-weight: 700;
+	height: 25vh;
+}
+
+.result__filtr {
+	background: #aaa;
+	width: 100%;
+	padding: 10px 20px;
+}
+
+.result__filtr-location {
+	display: block;
+	font-size: 1rem;
+	text-transform: uppercase;
+	color: gray;
+	margin-bottom: 5px;
+}
+
+.result__radio-locInput {
+	border: 1px solid white;
+	border-radius: 5px;
+	height: 25px;
+}
+
+.result__filtr-time input,
+label {
+	margin: 2px;
+}
+
+.result__radio-input {
+	margin: 5px;
+}
+
+@media (min-width: 768px) {
+	.search-in {
+		width: 50vw;
+	}
+}
+
+@media (min-width: 992px) {
+	.search-in {
+		width: 30vw;
+	}
 }

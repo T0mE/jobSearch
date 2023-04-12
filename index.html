@@ -12,13 +12,47 @@
 
 <body>
 
-    <main>
+    <main class="main">
         <section>
             <div class="search-img">
                 <div class="search-in">
-                    <input type="text">
+                    <input type="text" class="search__input">
                     <button>Search</button>
                 </div>
+            </div>
+        </section>
+        <section>
+            <div class="result">
+                <div class="result__filtr">
+                    <div class="result__filtr-time">
+                        <input type="checkbox" id="time">
+                        <label for="time">Full time</label>
+                    </div>
+                    <div class="result__location">
+                        <label for="location" class="result__filtr-location">location</label>
+                        <input class="result__radio-locInput" type="text">
+                    </div>
+                    <div class="result__radio">
+                        <div>
+                            <input class="result__radio-input" type="radio" id="london" name="from">
+                            <label for="london">London</label>
+                        </div>
+                        <div>
+                            <input class="result__radio-input" type="radio" id="amsterdam" name="from">
+                            <label for="amsterdam">Amsterdam</label>
+                        </div>
+                        <div>
+                            <input class="result__radio-input" type="radio" id="newYork" name="from">
+                            <label for="newYork">New York</label>
+                        </div>
+                        <div>
+                            <input class="result__radio-input" type="radio" id="berlin" name="from">
+                            <label for="berlin">Berlin</label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="result_proposal"></div>
             </div>
         </section>
     </main>
