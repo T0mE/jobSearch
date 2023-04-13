@@ -60,7 +60,7 @@ button {
 	font-size: 1.4rem;
 	color: royalblue;
 	font-weight: 700;
-	height: 25vh;
+	/* height: 25vh; */
 }
 
 .result__filtr {
@@ -81,6 +81,7 @@ button {
 	border: 1px solid white;
 	border-radius: 5px;
 	height: 25px;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
 }
 
 .result__filtr-time input,
@@ -92,6 +93,12 @@ label {
 	margin: 5px;
 }
 
+.result_proposal {
+	width: 100%;
+	background-color: #fff;
+	height: 100vh;
+}
+
 @media (min-width: 768px) {
 	.search-in {
 		width: 50vw;
@@ -101,5 +108,53 @@ label {
 @media (min-width: 992px) {
 	.search-in {
 		width: 30vw;
+	}
+
+	.result {
+		display: flex;
+	}
+
+	.result__filtr {
+		width: 30%;
+	}
+
+	.result_proposal {
+		width: 70%;
+	}
+
+	.result_proposal-el {
+		display: flex;
+		margin: 10px auto;
+		width: 90%;
+		border: 1px solid black;
+		border-radius: 5px;
+		box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+	}
+
+	.result_proposal-img {
+		background-color: royalblue;
+		width: 80px;
+		height: 100px;
+		margin: 10px;
+	}
+
+	.result_proposal-position {
+		display: flex;
+		margin: 10px;
+		flex-direction: column;
+		align-items: start;
+		justify-content: space-around;
+	}
+
+	.result_proposal-company {
+		font-size: 1rem;
+		font-weight: 700;
+	}
+
+	.result_proposal-time {
+		display: inline-block;
+		border: 1px solid royalblue;
+		border-radius: 5px;
+		padding: 2px;
 	}
 }
