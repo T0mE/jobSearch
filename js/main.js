@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	const inputSearchJob = document.querySelector('.search__input');
 	const btnSearchJob = document.getElementById('btnSearch');
 
-	let jobs = [];
+	let job = [];
 
 	fetch('https://boards-api.greenhouse.io/v1/boards/a/jobs')
 		.then((data) => {
@@ -12,15 +12,14 @@ document.addEventListener('DOMContentLoaded', function () {
 		})
 		.then((post) => {
 			loader.classList.add('hide-loader');
-			jobs = post;
-			console.log(jobs);
-			appendData(jobs);
+			job = [...post.jobs];
+			appendData(job);
 		});
 
 	function appendData(data) {
 		const boxWrapper = document.getElementById('box-wrapper');
 		console.log(data);
-		for (let i = 0; i < data.jobs.length; i++) {
+		for (let i = 0; i < data.length; i++) {
 			const box = document.createElement('div');
 			const img = document.createElement('div');
 			const position = document.createElement('div');
@@ -38,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			time.classList.add('result_proposal-time');
 
 			company.innerHTML = 'Company';
-			tx.innerHTML = data.jobs[i].title;
-			time.innerHTML = data.jobs[i].data_compliance[0].requires_consent
+			tx.innerHTML = data[i].title;
+			time.innerHTML = data[i].data_compliance[0].requires_consent
 				? 'Full time'
 				: 'Part time';
 
@@ -53,34 +52,29 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	fullTime.addEventListener('change', function () {
-		let fullTime = {};
-		let partTime = {};
-		console.log(jobs.length);
-		for (let step = 0; step < jobs.length; step++) {
-			console.log(jobs.jobs[step].data_compliance[0].requires_consent);
-			jobs.jobs[step].data_compliance[0].requires_consent
-				? fullTime.add(jobs)
-				: partTime.add(jobs);
-		}
+		console.log(this.checked);
+		let jobs = [];
 
-		console.log('Full time: ' + fullTime.length);
-		console.log('Part time: ' + partTime.length);
 		const result = document.querySelector('.result_proposal');
 		result.innerHTML = '';
+
 		if (this.checked) {
-			console.log('checked');
+			for (let step = 0; step < jobs.length; step++) {
+				if (jobs[step].data_compliance[0].requires_consent) {
+					fullTime.push(jobs[step]);
+				}
+			}
 		} else {
-			appendData(partTime);
-			console.log('not checked');
+			appendData(job);
 		}
 	});
 
 	btnSearchJob.addEventListener('click', function () {
 		const searchVal = inputSearchJob.value;
 		let searchJob = [];
-		for (let step = 0; step < jobs.jobs.length; step++) {
-			if (jobs.jobs[step].title.includes(searchVal)) {
-				searchJob.push(jobs.jobs[step]);
+		for (let step = 0; step < job.length; step++) {
+			if (job[step].title.includes(searchVal)) {
+				searchJob.push(job[step]);
 			}
 		}
 		console.log(searchJob);
