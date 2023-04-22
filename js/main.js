@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	const fullTime = document.getElementById('time');
 	const inputSearchJob = document.querySelector('.search__input');
 	const btnSearchJob = document.getElementById('btnSearch');
+	const location = document.querySelector('.result__radio-locInput');
 
 	let job = [];
 
@@ -81,5 +82,17 @@ document.addEventListener('DOMContentLoaded', function () {
 		const result = document.querySelector('.result_proposal');
 		result.innerHTML = '';
 		appendData(searchJob);
+	});
+
+	location.addEventListener('input', () => {
+		let loc = [];
+		for (let i = 0; i < job.length; i++) {
+			if (job[i].location.name.includes(location.value)) {
+				loc.push(job[i]);
+			}
+			const result = document.querySelector('.result_proposal');
+			result.innerHTML = '';
+			appendData(loc);
+		}
 	});
 });
